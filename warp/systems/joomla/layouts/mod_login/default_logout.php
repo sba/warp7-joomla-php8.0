@@ -11,6 +11,10 @@ defined('_JEXEC') or die;
 
 JHtml::_('behavior.keepalive');
 
+if (!isset($type) || $type === '') {
+    $type = 'logout';
+}
+
 ?>
 
 <?php if ($type == 'logout') : ?>

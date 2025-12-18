@@ -168,6 +168,7 @@ class Repository implements \ArrayAccess
      *
      * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($key)
     {
         return $this->has($key);
@@ -180,6 +181,7 @@ class Repository implements \ArrayAccess
      *
      * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($key)
     {
         return $this->get($key);
@@ -191,6 +193,7 @@ class Repository implements \ArrayAccess
      * @param string $key
      * @param string $value
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($key, $value)
     {
         $this->set($key, $value);
@@ -201,6 +204,7 @@ class Repository implements \ArrayAccess
      *
      * @param string $key
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($key)
     {
         $this->set($key, null);

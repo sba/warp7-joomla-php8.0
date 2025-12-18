@@ -32,21 +32,25 @@ abstract class AbstractHelper implements \ArrayAccess
 
     /* ArrayAccess interface implementation */
 
+    #[\ReturnTypeWillChange]
     public function offsetGet($name)
     {
         return $this->warp[$name];
     }
 
+    #[\ReturnTypeWillChange]
     public function offsetSet($name, $helper)
     {
         $this->warp[$name] = $helper;
     }
 
+    #[\ReturnTypeWillChange]
     public function offsetUnset($name)
     {
         unset($this->warp[$name]);
     }
 
+    #[\ReturnTypeWillChange]
     public function offsetExists($name)
     {
         return !empty($this->warp[$name]);

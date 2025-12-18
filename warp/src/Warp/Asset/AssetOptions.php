@@ -40,23 +40,27 @@ abstract class AssetOptions implements \ArrayAccess
 
     /* ArrayAccess interface implementation */
 
-    public function offsetSet($name, $value)
+    public function offsetSet(mixed $name, mixed $value): void
     {
-        $this->options[$name] = $value;
+        if ($name === null) {
+            $this->options[] = $value;
+        } else {
+            $this->options[$name] = $value;
+        }
     }
 
-    public function offsetGet($name)
+    public function offsetGet(mixed $name): mixed
     {
-        return isset($this->options[$name]) ? $this->options[$name] : null;
+        return array_key_exists($name, $this->options) ? $this->options[$name] : null;
     }
 
-    public function offsetExists($name)
+    public function offsetExists(mixed $offset): bool
     {
-        return isset($this->options[$name]);
+        return array_key_exists($offset, $this->options);
     }
 
-    public function offsetUnset($name)
+    public function offsetUnset(mixed $offset): void
     {
-        unset($this->options[$name]);
+        unset($this->options[$offset]);
     }
 }
