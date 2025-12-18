@@ -589,3 +589,8 @@ input.sp-input {
 .sp-hue { font: inherit; }
 
 .sp-input-container { margin-bottom: 10px; }
+
+
+.uk-form-label, .uk-form-controls-condensed label {
+    color: #555;
+}
